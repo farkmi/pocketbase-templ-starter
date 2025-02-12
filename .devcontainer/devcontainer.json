@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.106.0/containers/docker-existing-docker-compose
 // If you want to run as a non-root user in the container, see .devcontainer/docker-compose.yml.
 {
-	"name": "github.com/majodev/pocketbase-starter",
+	"name": "github.com/farkmi/pocketbase-templ-starter",
 	// Update the 'dockerComposeFile' list if you have more compose files or use different names.
 	// The .devcontainer/docker-compose.yml file contains any overrides you need/want to make.
 	"dockerComposeFile": [
@@ -89,7 +89,8 @@
 				"bungcip.better-toml",
 				"eamodio.gitlens",
 				"casualjim.gotemplate",
-				"yzhang.markdown-all-in-one"
+				"yzhang.markdown-all-in-one",
+				"bradymholt.pgformatter"
 			]
 		}
 	},

@@ -203,6 +203,7 @@ RUN make go-build
 FROM gcr.io/distroless/base-debian12:debug as app
 
 COPY --from=builder /app/bin/app /app/
+COPY --from=builder /app/web /app/web
 
 WORKDIR /app
 

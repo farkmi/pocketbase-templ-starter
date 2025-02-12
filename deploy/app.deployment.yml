@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: app
-  namespace: pocketbase-starter
+  namespace: pocketbase-templ-starter
   labels:
     app: app
 spec:
@@ -20,7 +20,7 @@ spec:
       automountServiceAccountToken: false
       containers:
         - name: app
-          image: ghcr.io/majodev/pocketbase-starter
+          image: ghcr.io/farkmi/pocketbase-templ-starter
           ports:
             - name: app
               containerPort: 8090
@@ -32,4 +32,4 @@ spec:
       volumes:
         - name: data
           persistentVolumeClaim:
-            claimName: pocketbase-starter-data
+            claimName: pocketbase-templ-starter-data

@@ -1,11 +1,13 @@
-# github.com/majodev/pocketbase-starter
+# github.com/farkmi/pocketbase-templ-starter
 
 Template for extending [Pocketbase](https://github.com/pocketbase/pocketbase) with [Go](https://pocketbase.io/docs/go-overview/) in a containerized environment via [VSCode remote containers](https://code.visualstudio.com/docs/remote/containers).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/majodev/pocketbase-starter/blob/master/LICENSE)
-[![Build and Test](https://github.com/majodev/pocketbase-starter/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/majodev/pocketbase-starter/actions)
+Based on [@majodev/pocketbase-starter](https://github.com/majodev/pocketbase-starter), project structure and workflows heavily inspired by how we work with [@allaboutapps/go-starter](https://github.com/allaboutapps/go-starter)
 
-- [github.com/majodev/pocketbase-starter](#githubcommajodevpocketbase-starter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/farkmi/pocketbase-templ-starter/blob/master/LICENSE)
+[![Build and Test](https://github.com/farkmi/pocketbase-templ-starter/actions/workflows/build-test-publish.yml/badge.svg)](https://github.com/farkmi/pocketbase-templ-starter/actions)
+
+- [github.com/farkmi/pocketbase-templ-starter](#githubcomfarkmipocketbase-templ-starter)
     - [Requirements](#requirements)
     - [Quickstart](#quickstart)
     - [Visual Studio Code](#visual-studio-code)
@@ -27,10 +29,10 @@ This project makes use of the [Remote - Containers extension](https://code.visua
 
 ### Quickstart
 
-Create a new git repository through the GitHub template repository feature ([use this template](https://github.com/majodev/pocketbase-starter/generate)). You will then start with a **single initial commit** in your own repository. 
+Create a new git repository through the GitHub template repository feature ([use this template](https://github.com/farkmi/pocketbase-templ-starter/generate)). You will then start with a **single initial commit** in your own repository. 
 
 ```bash
-# First replace all occurances of 'github.com/majodev/pocketbase-starter' and then 'pocketbase-starter' with your own repository URI and project-name
+# First replace all occurances of 'github.com/farkmi/pocketbase-templ-starter' and then 'pocketbase-templ-starter' with your own repository URI and project-name
 
 # Then easily start the docker-compose dev environment through our helper
 ./docker-helper.sh --up
@@ -62,8 +64,8 @@ Run `CMD+SHIFT+P` `Go: Install/Update Tools` **after** attaching to the containe
 ### Production build
 
 ```bash
-docker build . -t pocketbase-starter
-docker run -v ./pb_data:/app/pb_data -p 8090:8090 pocketbase-starter
+docker build . -t pocketbase-templ-starter
+docker run -v ./pb_data:/app/pb_data -p 8090:8090 pocketbase-templ-starter
 ```
 
 ### Kubernetes deployment
@@ -76,7 +78,7 @@ Simply run `./docker-helper --destroy` in your working directory (on your host m
 
 ## Maintainers
 
-- [Mario Ranftl - @majodev](https://github.com/majodev)
+- [Michael Farkas @farkmi](https://github.com/farkmi)
 
 
 ## License

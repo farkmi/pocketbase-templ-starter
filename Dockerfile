@@ -91,6 +91,9 @@ RUN go install github.com/uw-labs/lichen@v0.1.7
 # https://github.com/spf13/cobra-cli/releases
 RUN go install github.com/spf13/cobra-cli@v1.3.0
 
+# changie: a tool to help manage changelogs
+RUN go install github.com/miniscruff/changie@v1.21.0
+
 # watchexec
 # https://github.com/watchexec/watchexec/releases
 RUN mkdir -p /tmp/watchexec \

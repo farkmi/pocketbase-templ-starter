@@ -3,6 +3,7 @@ module github.com/farkmi/pocketbase-templ-starter
 go 1.23
 
 require (
+	github.com/a-h/templ v0.3.833
 	github.com/pocketbase/dbx v1.11.0
 	github.com/pocketbase/pocketbase v0.24.4
 	github.com/spf13/cobra v1.8.1

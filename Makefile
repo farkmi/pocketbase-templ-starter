@@ -5,6 +5,7 @@
 # first is default target when running "make" without args
 build: ##- Default 'make' target: go-format, go-build and lint.
 	@$(MAKE) go-generate
+	@$(MAKE) templ
 	@$(MAKE) go-format
 	@$(MAKE) go-build
 	@$(MAKE) lint
@@ -23,6 +24,7 @@ build: ##- Default 'make' target: go-format, go-build and lint.
 
 dev: ##- Runs the pocketbase server
 	@$(MAKE) go-generate
+	@$(MAKE) templ
 	@$(MAKE) go-format
 	@$(MAKE) dev-concurrent
 
@@ -67,6 +69,9 @@ go-build: ##- (opt) Runs go build.
 
 # go-build-arm: ##- (opt) Runs go build.
 # 	GOOS=linux GOARCH=arm go build -o bin/app-arm
+
+templ: ##- (opt) Runs go generate for templ.
+	templ generate
 
 test-init: ##- Initializes the test_pb_data directory
 	go run main.go migrate --dir="./test_pb_data"

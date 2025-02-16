@@ -4,6 +4,7 @@ import (
 	"io/fs"
 
 	"github.com/farkmi/pocketbase-templ-starter/internal/cmd"
+	"github.com/farkmi/pocketbase-templ-starter/internal/handlers/webapp"
 	"github.com/farkmi/pocketbase-templ-starter/internal/server/config"
 	"github.com/farkmi/pocketbase-templ-starter/internal/server/hooks"
 	"github.com/farkmi/pocketbase-templ-starter/public"
@@ -23,6 +24,9 @@ func BindRoutes(app core.App) error {
 	app.OnServe().BindFunc(func(se *core.ServeEvent) error {
 		// serves static files from the provided embedded public
 		se.Router.GET("/{path...}", apis.Static(public, true))
+
+		webAppRoute := se.Router.Group("/webapp")
+		webapp.InitWebAppRoutes(webAppRoute)
 
 		return se.Next()
 	})

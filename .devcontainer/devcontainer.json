@@ -84,7 +84,7 @@
 				// required:
 				"golang.go",
 				// optional:
-				"42crunch.vscode-openapi",
+				"42crunch.vscode-openapi", 
 				"heaths.vscode-guid",
 				"bungcip.better-toml",
 				"eamodio.gitlens",

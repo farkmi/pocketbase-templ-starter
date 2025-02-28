@@ -2,7 +2,7 @@ kind: Service
 apiVersion: v1
 metadata:
   name: app
-  namespace: pocketbase-starter
+  namespace: pocketbase-templ-starter
 spec:
   selector:
     app: app

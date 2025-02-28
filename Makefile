@@ -5,6 +5,7 @@
 # first is default target when running "make" without args
 build: ##- Default 'make' target: go-format, go-build and lint.
 	@$(MAKE) go-generate
+	@$(MAKE) templ
 	@$(MAKE) go-format
 	@$(MAKE) go-build
 	@$(MAKE) lint
@@ -23,6 +24,7 @@ build: ##- Default 'make' target: go-format, go-build and lint.
 
 dev: ##- Runs the pocketbase server
 	@$(MAKE) go-generate
+	@$(MAKE) templ
 	@$(MAKE) go-format
 	@$(MAKE) dev-concurrent
 
@@ -67,6 +69,9 @@ go-build: ##- (opt) Runs go build.
 
 # go-build-arm: ##- (opt) Runs go build.
 # 	GOOS=linux GOARCH=arm go build -o bin/app-arm
+
+templ: ##- (opt) Runs go generate for templ.
+	templ generate
 
 test-init: ##- Initializes the test_pb_data directory
 	go run main.go migrate --dir="./test_pb_data"
@@ -160,6 +165,23 @@ help-all: ##- Show all make targets.
 	@echo "note: make targets flagged with '(opt)' are part of a main target."
 	@echo ""
 	@sed -e '/#\{2\}-/!d; s/\\$$//; s/:[^#\t]*/@/; s/#\{2\}- *//' $(MAKEFILE_LIST) | sort | column -t -s '@'
+
+### -----------------------
+# --- Changelog
+### -----------------------
+
+changelog-prerelease: # Usage: make changelog-prerelease
+	@echo "make changelog-prerelease"
+	@changie batch 0.0.0 --prerelease prerelease-$(shell date +%Y-%m-%d-%H%M%S) --move-dir prerelease
+	@git add --all
+	@git commit -m "PRERELEASE: $(shell date +%Y-%m-%d-%H%M%S)"
+
+changelog-release: # Usage: make changelog-release VERSION=24.11.0
+	@echo "make changelog-release with version $(VERSION)"
+	@changie batch $(VERSION) --include prerelease --remove-prereleases
+	@changie merge
+	@git add --all
+	@git commit -m "RELEASE: $(VERSION)"
 
 
 ### -----------------------

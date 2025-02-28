@@ -1,0 +1,15 @@
+package components
+
+import (
+    "strconv"
+)
+
+templ ErrorPage(status int, message, errorType, detail string) {
+	<div>
+        Something went wrong!
+        <div>Status: { strconv.Itoa(status) }</div>
+        <div>Type: { errorType }</div>
+        <div>Message: { message }</div>
+        <div>Detail: { detail }</div>
+    </div>
+}

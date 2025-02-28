@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"testing"
 
+	"github.com/farkmi/pocketbase-templ-starter/internal/server"
 	"github.com/pocketbase/pocketbase/tests"
 	"github.com/stretchr/testify/require"
 )
@@ -25,7 +26,10 @@ func TestHelloEndpoint(t *testing.T) {
 		// no need to cleanup since scenario.Test() will do that for us
 		// defer testApp.Cleanup()
 
-		err = bindAppHooks(testApp)
+		err = server.BindCollectionHooks(testApp)
+		require.NoError(t, err)
+
+		err = server.BindRoutes(testApp)
 		require.NoError(t, err)
 
 		return testApp
@@ -37,7 +41,7 @@ func TestHelloEndpoint(t *testing.T) {
 			Method:          http.MethodGet,
 			URL:             "/",
 			ExpectedStatus:  200,
-			ExpectedContent: []string{"github.com/majodev/pocketbase-starter"},
+			ExpectedContent: []string{"github.com/farkmi/pocketbase-templ-starter"},
 			TestAppFactory:  setupTestApp,
 		},
 	}
